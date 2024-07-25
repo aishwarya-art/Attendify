@@ -1,0 +1,140 @@
+.calendar-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f7f5f5d2;
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 5px;
+}
+
+.calendar-day-name {
+  text-align: center;
+  font-weight: bold;
+}
+
+.calendar-day {
+  cursor: pointer;
+  padding: 8px;
+  text-align: center;
+  border-radius: 5px;
+  background-color: #ffffff;
+  transition: background-color 0.3s ease;
+}
+
+/* .calendar-day.present {
+  border: 1px solid #90ee90;
+}
+
+.calendar-day.absent {
+  border: 1px solid #F44336;
+} */
+
+/* .calendar-day .in-progress {
+  border: 1px solid #78fbf5;
+} */
+
+.calendar-day.sunday {
+  cursor: not-allowed;
+
+    color: #aaa;
+
+}
+
+.calendar-day.today {
+  background-color: #ffa;
+}
+
+.calendar-day.selected {
+  border-bottom:3px solid #0078ff;
+ 
+}
+
+.calendar-day:hover {
+  background-color: #acd2fd;
+}
+
+.calendar-day.future {
+  cursor: text;
+  color: #aaa;
+}
+
+.selected-date {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 18px;
+}
+
+.modal-dialog {
+  max-width: 70% !important;
+}
+.disabled {
+  cursor : text !important;
+}
+.absent .span-absent {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  display: flex;
+  top: -10%;
+  left: 90%;
+  position: relative;
+  background-color: #F44336;
+}
+
+.present .span-present {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  display: flex;
+  top: -10%;
+  left: 90%;
+  position: relative;
+  background-color: #4CAF50;
+}
+
+.in-progress .span-in-progress {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  display: flex;
+  top: -10%;
+  left: 90%;
+  position: relative;
+  background-color: #78fbf5;
+}
+.indicaters span {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  display: flex;
+  margin-right: 4px;
+
+}
+.indicaters p {  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+.i-present {
+  background-color: #4CAF50;
+}
+.i-absent {
+  background-color: #F44336;
+}
+.i-in-progress {
+  background-color: #78fbf5;
+}

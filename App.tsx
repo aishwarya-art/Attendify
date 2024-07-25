@@ -1,118 +1,45 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
+import React, { useEffect } from 'react';
+import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 
-import React from 'react';
-import type {PropsWithChildren} from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
-} from 'react-native';
-
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
-
-type SectionProps = PropsWithChildren<{
-  title: string;
-}>;
-
-function Section({children, title}: SectionProps): React.JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
-  return (
-    <View style={styles.sectionContainer}>
-      <Text
-        style={[
-          styles.sectionTitle,
-          {
-            color: isDarkMode ? Colors.white : Colors.black,
-          },
-        ]}>
-        {title}
-      </Text>
-      <Text
-        style={[
-          styles.sectionDescription,
-          {
-            color: isDarkMode ? Colors.light : Colors.dark,
-          },
-        ]}>
-        {children}
-      </Text>
-    </View>
-  );
-}
-
-function App(): React.JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
-
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
+import OneSignal from 'react-native-onesignal';
+import Login from './src/Login';
+import Dashboard from './src/Dashboard';
+import Visitors from './src/Visitors';
+import Navigation from './src/Navigation';
+import Navigation_Emp from './src/Navigation_Emp';
+import Dashboard_HR from './src/Dashboard_HR';
+import Dashboard_Rec from './src/Dashboard_Rec';
+import Dashboard_Emp from './src/Dashboard_Emp';
+import Dashboard_new from './src/Dashboard_new';
+import Attendance from './src/Attendance';
+import Guest from './src/Guest';
+import Approval from './src/Approval';
+import GuestsNew from './src/GuestsNew';
+import Profile from './src/Profile';
+const App: React.FC = () => {
+ 
 
   return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar
-        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-        backgroundColor={backgroundStyle.backgroundColor}
-      />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        <Header />
-        <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-          }}>
-          <Section title="Step One">
-            Edit <Text style={styles.highlight}>App.tsx</Text> to change this
-            screen and then come back to see your edits.
-          </Section>
-          <Section title="See Your Changes">
-            <ReloadInstructions />
-          </Section>
-          <Section title="Debug">
-            <DebugInstructions />
-          </Section>
-          <Section title="Learn More">
-            Read the docs to discover what to do next:
-          </Section>
-          <LearnMoreLinks />
-        </View>
-      </ScrollView>
-    </SafeAreaView>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Login />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/visitors" element={<Visitors />} />
+        <Route path="/Navigation" element={<Navigation />} />
+        <Route path="/Navigation_Emp" element={<Navigation_Emp />} />
+        <Route path="/Dashboard_HR" element={<Dashboard_HR />} />
+        <Route path="/Dashboard_Rec" element={<Dashboard_Rec />} />
+        <Route path="/Dashboard_Emp" element={<Dashboard_Emp />} />
+        <Route path="/Dashboard_new" element={<Dashboard_new />} />
+        <Route path="/Attendance" element={<Attendance />} />
+        <Route path="/Guest" element={<Guest />} />
+        <Route path="/Approval" element={<Approval />} />
+        <Route path="/GuestsNew" element={<GuestsNew />} />
+        <Route path="/Profile" element={<Profile />} />
+        <Route path="*" element={<Navigate to="/" replace />} />
+      </Routes>
+    </Router>
   );
-}
-
-const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-});
+};
 
 export default App;

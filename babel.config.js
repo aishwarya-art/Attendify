@@ -1,3 +1,14 @@
 module.exports = {
-  presets: ['module:@react-native/babel-preset'],
+  presets: [
+    'module:metro-react-native-babel-preset',
+    '@babel/preset-typescript'
+  ],
+  plugins: [
+    ['module-resolver', {
+      alias: {
+        'react-native': 'react-native-web',
+      },
+    }],
+    'react-native-reanimated/plugin',
+  ],
 };
